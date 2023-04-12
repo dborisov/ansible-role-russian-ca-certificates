@@ -1,0 +1,17 @@
+---
+galaxy_info:
+  author: Denis Borisov
+  namespace: dborisov
+  role_name: russian_ca_certificates
+  description: Ansible role for installing trusted CA certificates from the Ministry of Digital Development and Communications of the Russian Federation
+  license: MIT
+  min_ansible_version: "2.12"
+  platforms:
+    - name: EL
+      versions:
+        - "8"
+        - "9"
+  galaxy_tags:
+    - ssl
+    - ca
+    - certificates

@@ -1,0 +1,10 @@
+---
+- name: Verify
+  hosts: all
+  tasks:
+    - name: Verify CA certificates
+      ansible.builtin.command:
+        cmd: "/usr/bin/openssl verify /usr/share/pki/ca-trust-source/anchors/{{ item }}"
+      loop:
+        - russian_trusted_root_ca_pem.crt
+        - russian_trusted_sub_ca_pem.crt
