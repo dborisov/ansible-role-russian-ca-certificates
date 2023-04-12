@@ -1,0 +1,16 @@
+---
+- name: Ensure the update-ca-trust tool is present
+  ansible.builtin.yum:
+    name: /usr/bin/update-ca-trust
+
+- name: Ensure the CA certificates are downloaded
+  ansible.builtin.get_url:
+    url: "https://gu-st.ru/content/lending/{{ item }}"
+    dest: "/usr/share/pki/ca-trust-source/anchors/{{ item }}"
+    owner: "root"
+    group: "root"
+    mode: "0644"
+  notify: Update CA trust
+  loop:
+    - russian_trusted_root_ca_pem.crt
+    - russian_trusted_sub_ca_pem.crt
